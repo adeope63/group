@@ -22,6 +22,7 @@
                     <p class="location">Location: {{lesson.location}}</p>
                     <p class="price">Price: €{{lesson.price}}</p>
                     <p class="space">Spaces: {{lesson.space}}</p>
+                    <img class="image" :src="lesson.imgURL" alt="">
                     <button class="add" v-on:click="addToCart">Add to Cart</button>
                 </div>
             </section>
@@ -40,17 +41,18 @@
                         subject: 'Math',
                         location: "London",
                         price: 100,
-                        space: 5
+                        imgURL: "./math.png",
+                        space: 5,
                     }
                 }
             },
             methods: {
-                addToCart:function(){
-                    if (this.lesson.space > 0){
+                addToCart: function () {
+                    if (this.lesson.space > 0) {
                         this.lesson.space -= 1
-                    console.log(this.lesson.space)
-                    }else{
-                    this.lesson.space = 0
+                        console.log(this.lesson.space)
+                    } else {
+                        this.lesson.space = 0
                     }
                 }
             },
