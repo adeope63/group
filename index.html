@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn git</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <main class="container">
+            <section>
+                <div class="paragraph">
+                    <p class="subject">Subject: {{lesson.subject}}</p>
+                    <p class="location">Location: {{lesson.location}}</p>
+                    <p class="price">Price: €{{lesson.price}}</p>
+                    <p class="space">Spaces: {{lesson.space}}</p>
+                    <button class="add" v-on:click="addToCart">Add to Cart</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    lesson: {
+                        subject: 'Math',
+                        location: "London",
+                        price: 100,
+                        space: 5
+                    }
+                }
+            },
+            methods: {
+                addToCart:function(){
+                    if (this.lesson.space > 0){
+                        this.lesson.space -= 1
+                    console.log(this.lesson.space)
+                    }else{
+                    this.lesson.space = 0
+                    }
+                }
+            },
+        }).mount('#app');
+    </script>
+
+</body>
+
+</html>
